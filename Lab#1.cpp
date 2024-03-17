@@ -76,6 +76,23 @@ public:
   void nadar();
 };
 
+///////////////Ballena/////////////////////////
+
+class Ballena : public Peces{
+  private:
+    bool granTamano;
+    bool granpeso;
+    bool barba;
+        
+  public:
+    Ballena(bool,string,bool,
+    string, int, bool, string, string,
+    bool, bool,bool,bool,int,
+    bool,bool,
+    bool,bool,bool);
+
+    void emitirCanto();
+};
 
 /////////////////////////Felinos//////////////////////////
 
@@ -89,10 +106,29 @@ public:
   Felinos(bool,string,bool,
   string, int, bool, string, string,
   bool, bool,bool,bool,int,
+  
   bool, bool, bool);
 
   void cazar();
   void correr();
+};
+
+
+///////////////Gato/////////////////////////
+
+class Gato : public Felinos{
+  private:
+    bool almohadilla;
+
+  public:
+    Gato(bool,string,bool,
+    string, int, bool, string, string,
+    bool, bool,bool,bool,int,
+    bool,bool,bool,
+    bool);
+
+    void ronronear();
+
 };
 
 
@@ -113,6 +149,25 @@ public:
 };
 
 
+///////////////Pollo/////////////////////////
+
+class Pollo : public Aves{
+  private:
+    bool cresta;
+    
+  public:
+    Pollo(bool,string,bool,
+    string, int, bool, string, string,
+    bool, bool,bool,bool,int,
+    bool,bool,
+    bool);
+
+    void cacarear();
+    void ponerHuevo();
+
+};
+
+
 /////////////////////////Mamiferos//////////////////////////
 
 class Mamiferos : public Vertebrado {
@@ -128,6 +183,24 @@ public:
   bool, bool, bool);
 
   void amamantar();
+};
+
+///////////////Perro/////////////////////////
+
+class Perro : public Mamiferos{
+  private:
+    bool almohadilla;
+
+  public:
+    Perro(bool,string,bool,
+    string, int, bool, string, string,
+    bool, bool,bool,bool,int,
+    bool,bool,bool,
+    bool);
+
+    void ladrar();
+    void jugar();
+
 };
 
 
@@ -149,6 +222,24 @@ public:
   void cazar();
 };
 
+///////////////Iguana/////////////////////////
+
+class Iguana : public Reptiles{
+  private:
+    bool esRapida;
+    
+  public:
+    Iguana(bool,string,bool,
+    string, int, bool, string, string,
+    bool, bool,bool,bool,int,
+    bool,bool,
+    bool);
+
+    void trepar();
+    void tomaCafe();
+
+};
+
 
 /////////////////////////Invertebrados//////////////////////////
 
@@ -162,7 +253,6 @@ public:
   bool);
   
 };
-
 
 /////////////////////////Artopodos/////////////////////////////
 
@@ -179,6 +269,24 @@ public:
 
   void salirEnOscuridad();
   void tejerTelaranas();
+};
+
+///////////////Abejas/////////////////////////
+
+class Abejas : public Artropodo{
+  private:
+    bool viveEnPanal;
+    
+  public:
+    Abejas(bool,string,bool,
+    string, int, bool, string, string,
+    bool,
+    bool,bool,
+    bool);
+
+    void producirMiel();
+    void polinizar();
+
 };
 
 
@@ -199,6 +307,23 @@ public:
   void viveEnAguaYTierra();
 };
 
+///////////////Caracol/////////////////////////
+
+class Caracol : public Moluscos{
+  private:
+    bool lento;
+    
+  public:
+    Caracol(bool,string,bool,
+    string, int, bool, string, string,
+    bool,
+    bool,bool,bool,
+    bool);
+
+    void producirBaba();
+};
+
+
 /////////////////////////Equinodermos//////////////////////////
 
 class Equinodermos : public Invertebrados {
@@ -214,6 +339,23 @@ public:
 
   void viveEnFondoMarino();
 };
+
+///////////////ErizoDeMar/////////////////////////
+
+class ErizoDeMar : public Equinodermos{
+  private:
+    bool hervivoro;
+    
+  public:
+    ErizoDeMar(bool,string,bool,
+    string, int, bool, string, string,
+    bool,
+    bool,bool,
+    bool);
+
+    void caminar();
+};
+
 
 /////////////////////////////////////////Constructor Seres vivos///////////////////////////
 
@@ -332,12 +474,15 @@ void Vertebrado::saltar(){
   << "Tambien puede saltar"<<endl;
   
 }
+
+
+
 //////////////////////////constructor de peces///////////////////////
 
 Peces::Peces(bool _multiCelulares, string _sexo, bool _tomanAgua, 
 string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
 bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza, 
-bool _aletas, bool _escamas) :Vertebrado(_multiCelulares, _sexo, _tomanAgua, 
+bool _aletas, bool _escamas) : Vertebrado(_multiCelulares, _sexo, _tomanAgua, 
 _nombre, _patas, _consumoOxigeno, _tamano, _color, 
 _cola, _osico, _garras, 
 _pico, _fuerza){
@@ -351,6 +496,33 @@ _pico, _fuerza){
     cout <<endl <<"Los peces tienen aletas?: "<<aletas<<endl
     <<"Tienen escamas?: "<<escamas<<endl
     <<"Tambien nadan por defecto"<<endl;
+  }
+
+
+///////////////////////Contructor de Ballena///////////////////
+
+Ballena::Ballena(bool _multiCelulares, string _sexo, bool _tomanAgua, 
+string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
+bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza, 
+bool _aletas, bool _escamas,
+bool _granTamano, bool _granpeso, bool _barba) : Peces(_multiCelulares, _sexo, _tomanAgua, 
+_nombre, _patas, _consumoOxigeno, _tamano, _color, 
+_cola, _osico, _garras,_pico, _fuerza,
+_aletas, _escamas){
+
+
+  granTamano = _granTamano;
+  granpeso = _granpeso;
+  barba = _barba;
+
+}
+
+
+void Ballena::emitirCanto(){
+    cout <<endl <<"La ballena tiene gran tamano?: "<<granTamano<<endl
+    <<"Pesa mucho?: "<<granpeso <<endl
+    <<"Tiene barba?: "<<barba<<endl
+    <<"Y puede cantar" <<endl;
   }
 
 
@@ -387,6 +559,28 @@ _cola, _osico, _garras, _pico, _fuerza){
   }
 
 
+///////////////////////Contructor de gato/////////////////
+
+Gato::Gato(bool _multiCelulares, string _sexo, bool _tomanAgua, 
+string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
+bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza, 
+bool _verenoscuridad, bool _piel, bool _agilidad,
+bool _almohadilla) : Felinos(_multiCelulares, _sexo, _tomanAgua, 
+_nombre, _patas, _consumoOxigeno, _tamano, _color, 
+_cola, _osico, _garras,_pico, _fuerza,
+_verenoscuridad, _piel, _agilidad)
+{
+
+  almohadilla =_almohadilla;
+
+}
+
+void Gato::ronronear(){
+    cout <<endl <<"El gato tiene almohadillas en sus patas?: "<<almohadilla<<endl
+    <<"Y puede ronronear"<<endl;
+  }
+
+
 /////////////////////Constructor de aves////////////////////
 
 Aves::Aves(bool _multiCelulares, string _sexo, bool _tomanAgua, 
@@ -410,6 +604,33 @@ void Aves::volar(){
   }
 }
 
+///////////////////////Contructor de pollo/////////////////
+
+Pollo::Pollo(bool _multiCelulares, string _sexo, bool _tomanAgua, 
+string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
+bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza,
+bool _plumas, bool _alas,
+bool _cresta) : Aves(_multiCelulares, _sexo, _tomanAgua, 
+_nombre, _patas, _consumoOxigeno, _tamano, _color, 
+_cola, _osico, _garras,_pico, _fuerza,
+_plumas, _alas)
+{
+
+  cresta =_cresta;
+
+}
+
+void Pollo::cacarear(){
+    cout <<endl <<"El pollo tiene cresta?: "<<cresta<<endl
+    <<"Y puede cacarear"<<endl;
+  }
+void Pollo::ponerHuevo(){
+    cout <<endl <<"El pollo tiene cresta?: "<<cresta<<endl
+    <<"Y puede poner un huevo"<<endl;
+  }
+
+
+
 
 ///////////////////////////Constructor de mamiferos////////////////
 
@@ -432,6 +653,32 @@ void Mamiferos::amamantar(){
   <<"Y toman liquido lacteo"<<endl;
   
 }
+
+///////////////////////Contructor de perro/////////////////
+
+Perro::Perro(bool _multiCelulares, string _sexo, bool _tomanAgua, 
+string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
+bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza,
+bool _pelo, bool _dientes, bool _granAprendizaje,
+bool _almohadilla) : Mamiferos(_multiCelulares, _sexo, _tomanAgua, 
+_nombre, _patas, _consumoOxigeno, _tamano, _color, 
+_cola, _osico, _garras,_pico, _fuerza,
+_pelo, _dientes, _granAprendizaje)
+{
+
+  almohadilla = _almohadilla;
+
+}
+
+void Perro::ladrar(){
+    cout <<endl <<"El perro tiene almohadillas?: "<<almohadilla<<endl
+    <<"Y puede ladrar"<<endl;
+  }
+void Perro::jugar(){
+    cout <<endl <<"El perro tiene almohadillas?: "<<almohadilla<<endl
+    <<"Y le gusta jugar"<<endl;
+  }
+
 
 
 ///////////////////////////Constructor de reptiles////////////////
@@ -459,6 +706,32 @@ void Reptiles::cazar(){
   cout <<endl <<"Los reptiles tambien son agiles y tienen la capcitad de cazar"<<endl;
   
 }
+
+///////////////////////Contructor de Iguana/////////////////
+
+Iguana::Iguana(bool _multiCelulares, string _sexo, bool _tomanAgua, 
+string _nombre, int _patas, bool _consumoOxigeno, string _tamano, string _color, 
+bool _cola, bool _osico,bool _garras, bool _pico, int _fuerza,
+bool _escamas, bool _arrastrarseenelsuelo,
+bool _esRapida) : Reptiles(_multiCelulares, _sexo, _tomanAgua, 
+_nombre, _patas, _consumoOxigeno, _tamano, _color, 
+_cola, _osico, _garras,_pico, _fuerza,
+_escamas, _arrastrarseenelsuelo)
+{
+
+  esRapida = _esRapida;
+
+}
+
+void Iguana::trepar(){
+    cout <<endl <<"El perro tiene almohadillas?: "<<esRapida<<endl
+    <<"Y puede ladrar"<<endl;
+  }
+void Iguana::tomaCafe(){
+    cout <<endl <<"El perro tiene almohadillas?: "<<esRapida <<endl
+    <<"Y le gusta jugar"<<endl;
+  }
+
 
 ////////////////////////constructor invertebrado//////////////////////////////
 
@@ -496,8 +769,34 @@ void Artropodo::tejerTelaranas(){
 
   cout <<endl <<"el insectos tienen exoesqueleto?: " <<exoEsqueleto<<endl
   <<"los artropodos tiene cuerpo segmento?: "<<cuerpoSegmentado<<endl
-  <<"Tambien pueden tejer telarañas"<<endl;
+  <<"Tambien pueden tejer telaranas"<<endl;
 }
+
+//////////////////Constructor Abeja/////////////////
+
+Abejas::Abejas(bool _multiCelulares, string _sexo, bool _tomanAgua,
+string _nombre, int _patas,bool _consumoOxigeno, string _tamano,string _color, 
+bool _insecto,
+bool _exoEsqueleto,bool _cuerpoSegmentado,
+bool _viveEnPanal) : Artropodo(_multiCelulares,_sexo,_tomanAgua,
+_nombre,_patas,_consumoOxigeno,_tamano,_color,_insecto,
+_exoEsqueleto, _cuerpoSegmentado)
+{
+  viveEnPanal = _viveEnPanal;
+}
+
+void Abejas::producirMiel(){
+  cout <<endl <<"las abejas viven en panal?: " <<viveEnPanal <<endl
+  <<"Tambien pueden producir miel"<<endl;
+}
+void Abejas::polinizar(){
+  cout <<endl <<"las abejas viven en panal?: " <<viveEnPanal <<endl
+  <<"Tambien pueden polinizar flores"<<endl;
+}
+
+
+//////////////////Constructor moluscos/////////////////
+
 
 Moluscos::Moluscos(bool _multiCelulares, string _sexo, bool _tomanAgua,
 string _nombre, int _patas,bool _consumoOxigeno, string _tamano,string _color, 
@@ -518,6 +817,27 @@ void Moluscos::viveEnAguaYTierra(){
   <<"Los molucos pueden vivir en agua y en tierra"<<endl;
 }
 
+
+//////////////////Constructor Caracol/////////////////
+
+Caracol::Caracol(bool _multiCelulares, string _sexo, bool _tomanAgua,
+string _nombre, int _patas,bool _consumoOxigeno, string _tamano,string _color, 
+bool _insecto,
+bool _cuerpoSegmentado,bool _tentaculos,bool _poseenCocha,
+bool _lento) : Moluscos(_multiCelulares,_sexo,_tomanAgua,
+_nombre,_patas,_consumoOxigeno,_tamano,_color,_insecto,
+_cuerpoSegmentado,_tentaculos, _poseenCocha)
+{
+  lento = _lento;
+}
+
+
+void Caracol::producirBaba(){
+  cout <<endl <<"los caracoles son lentos?: " <<lento <<endl
+  <<"Tambien producen baba"<<endl;
+}
+
+
 //////////////////Equinodermos/////////////////
 
 Equinodermos::Equinodermos(bool _multiCelulares, string _sexo, bool _tomanAgua,
@@ -536,6 +856,25 @@ void Equinodermos::viveEnFondoMarino(){
   <<"Los equinodermos tienen espinas?: " <<espinas<<endl
   <<"Los equinodermos viven en el fondo marino"<<endl;
 
+}
+
+//////////////////Constructor erizo de mar/////////////////
+
+ErizoDeMar::ErizoDeMar(bool _multiCelulares, string _sexo, bool _tomanAgua,
+string _nombre, int _patas,bool _consumoOxigeno, string _tamano,string _color, 
+bool _insecto,
+bool _simetriaRadial, bool _espinas,
+bool _hervivoro) : Equinodermos(_multiCelulares,_sexo,_tomanAgua,
+_nombre,_patas,_consumoOxigeno,_tamano,_color,_insecto,
+_simetriaRadial,_espinas)
+{
+  hervivoro = _hervivoro;
+}
+
+
+void ErizoDeMar::caminar(){
+  cout <<endl <<"los erizos de mar son hervivoros?: " <<hervivoro <<endl
+  <<"Tambien pueden caminar"<<endl;
 }
 
 
@@ -568,6 +907,7 @@ int main() {
   v1.cazar();
   v1.saltar();
   v1.correr(); 
+  
 
   
   //Clase peces
@@ -576,6 +916,13 @@ int main() {
   false,true,false,true,20,
   true,true);
   p1.nadar();
+   //constructor ballena
+  Ballena B1=Ballena(true,"Macho",true,
+  "salmon",4,true,"grande","negro",
+  false,true,false,true,20,
+  true,true,
+  true,true,true);
+  B1.emitirCanto();
 
 
   //Clase felinos
@@ -586,6 +933,15 @@ int main() {
   f1.cazar();
   f1.correr();
 
+  //Constructor gato
+  Gato G1=Gato(true,"Macho",true,
+  "Gato",4,true,"grande","negro",
+  false,true,false,true,15,
+  true,true,true,
+  true);
+  G1.ronronear();
+
+
 
   //Clases aves
   Aves t1=Aves(true,"Macho",true,
@@ -593,6 +949,15 @@ int main() {
   false,true,false,true,3,
   true,true);
   t1.volar();
+
+  //constructor aves
+  Pollo P1=Pollo(true,"Macho",true,
+  "Codorniz",4,true,"grande","negro",
+  false,true,false,true,3,
+  true,true,
+  true);
+  P1.cacarear();
+  P1.ponerHuevo();
 
 
   //Clases mamiferos
@@ -602,6 +967,15 @@ int main() {
   false,true,false,true,3,
   true,true,true);
   m1.amamantar();
+
+  //Clase perro
+  Perro Z1= Perro(true,"Macho",true,
+  "Codorniz",4,true,"grande","negro",
+  false,true,false,true,3,
+  true,true,true,
+  true);
+  Z1.ladrar();
+  Z1.jugar();
 
 
   //Clases reptiles
@@ -614,23 +988,50 @@ int main() {
   r1.caminar();
   r1.cazar();
 
+  //Clase iguana
+  Iguana I1=Iguana(true,"Macho",true,
+  "Codorniz",4,true,"grande","negro",
+  false,true,false,true,3,
+  true,true,
+  true);
+  I1.trepar();
+  I1.tomaCafe();
+
 
   //Clase invertebrados 
   //Invertebrados i1=Invertebrados();
   //i1.
   //Clase atropodo
   Artropodo A1= Artropodo(true,"Macho",true,
-  "araña",8,true,"grande","negra",
+  "arana",8,true,"grande","negra",
   false,
   true,true);
   A1.salirEnOscuridad();
   A1.tejerTelaranas();
+
+  //Constructor abeja
+  Abejas w1=Abejas(true,"Macho",true,
+  "arana",8,true,"grande","negra",
+  false,
+  true,true,
+  true);
+  w1.producirMiel();
+  w1.polinizar();
+
   //Clases moluscos
   Moluscos l1= Moluscos(true,"Macho",true,
   "caracol",1,true,"grande","negro",
   false,
   true,true,true);
   l1.viveEnAguaYTierra();
+
+  //Clase caracol
+  Caracol y1=Caracol(true,"Macho",true,
+  "caracol",1,true,"grande","negro",
+  false,
+  true,true,true,
+  true);
+  y1.producirBaba();
   
   //Clase Equinodermos
   Equinodermos e1=Equinodermos(true,"Macho",true,
@@ -639,5 +1040,11 @@ int main() {
   true,true);
   e1.viveEnFondoMarino();
   
-
+//Clase erizo de mar
+ErizoDeMar E1=ErizoDeMar(true,"Macho",true,
+  "caracol",1,true,"grande","negro",
+  false,
+  true,true,
+  true);
+  E1.caminar();
 }
